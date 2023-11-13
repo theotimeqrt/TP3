@@ -1,0 +1,45 @@
+Exercice 1 :
+
+Pour afficher tous les processus de tous les utilisateurs meme ceux qui n’ont pas de terminal de controle, on fait :
+"ps -e"
+
+Pour le processus qui consomme le plus de memoire, on fait :
+"ps -e --sort=-rss" et on peut rajouter "| head -n 2", il m'affiche :
+PID TTY          TIME CMD
+  21010 ?        00:01:25 firefox
+
+"pgrep firefox" renvoi un numéro de processus donc firefox est lancé.
+
+
+Exercice 2 :
+
+"top -d 1" pour afficher les informations système mises à jour toutes les secondes. "Q" pour quitter.
+
+"firefox &" pour le lancer, puis "top -d 1" puis "k" pour kill et on entre son id.
+
+
+Exercice 3 :
+
+
+Avec "emacs" sans "&", le shell n'attend pas de commande tant que emacs est ouvert.
+
+Une fois les commandes faites et "jobs" entré, j'obtiens :
+[1]   Arrêté                man gcc
+[2]-  Arrêté                info gcc
+[3]+  Arrêté                emacs
+
+J'utilise "jobs -l" puis je kill avec les id.
+
+
+Exercice 4 :
+
+"pgrep emacs" et "kill -s TSTP 23860" pour tuer emacs.
+C-z suspens le processus
+
+Le programme ddd n'est pas sur l'ordinateur et n'a pas pu etre installé.
+
+La commande kill -9 suivi du numéro de processus, on envoie au processus le signal SIGKILL. 
+Ce signal est très fort et ne peut pas être ignoré par le processus. 
+
+C-c envoie un signal SIGINT au processus. Contrairement à SIGKILL, le signal SIGINT peut être intercepté et traité par le processus.
+
